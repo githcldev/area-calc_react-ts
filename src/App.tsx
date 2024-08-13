@@ -28,13 +28,13 @@ function App() {
   return (
     <>
       <div className='c'>
-        <input value={n} onChange={(e) => setN(Number(e.target.value))} /> <br /> <br />
-        <input value={ns} onChange={(e) => { } } /> <br /> <br />
+        Number: <input value={n} onChange={(e) => setN(Number(e.target.value))} /> <br /> <br />
+        Num String: <input value={ns} onChange={(e) => { } } /> <br /> <br />
         <div className='a'>
-          <input value={h} onChange={(e) => setH(Number(e.target.value))} />
-          <input value={w} onChange={(e) => setW(Number(e.target.value))} />
+          Height: <input value={h} onChange={(e) => setH(Number(e.target.value))} /> <br />
+          Width: <input value={w} onChange={(e) => setW(Number(e.target.value))} />
         </div> <br />
-        <input value={a} onChange={(e) => { return; } } />
+        Area: <input value={a} onChange={(e) => { return; } } />
       </div>
     </>
   )
