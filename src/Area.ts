@@ -3,6 +3,11 @@ export interface AreaParams {
     h: number
 }
 
+export interface InEvent {
+    ev: React.FormEvent<HTMLInputElement>,
+    fr: Function
+}
+
 export class Area {
     width;
     height;

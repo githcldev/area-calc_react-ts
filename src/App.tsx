@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { Area, AreaParams } from './Area'
+import { Area, AreaParams, InEvent } from './Area'
 import { NumStr } from './NumStr'
 
 
@@ -25,16 +25,25 @@ function App() {
     setA(rec.calc())
   }, [h, w])
 
+  const change = (a: InEvent) => {
+    try {
+      let ve = Number(a.ev.target.value)
+      a.fr(ve)
+    } catch (err) {
+      alert('Given value not a valid number')
+    }
+  }
+
   return (
     <>
       <div className='c'>
-        Number: <input value={n} onChange={(e) => setN(Number(e.target.value))} /> <br /> <br />
-        Num String: <input value={ns} onChange={(e) => { } } /> <br /> <br />
+        Number: <input value={n} onChange={(ev) => change({ev, fr: setN }) } /> <br /> <br />
+        Num String: <input value={ns} readOnly /> <br /> <br />
         <div className='a'>
-          Height: <input value={h} onChange={(e) => setH(Number(e.target.value))} /> <br />
-          Width: <input value={w} onChange={(e) => setW(Number(e.target.value))} />
+          Height: <input value={h} onChange={(ev) => change({ev, fr: setH}) } /> <br />
+          Width: <input value={w} onChange={(ev) => change({ev, fr: setW}) } />
         </div> <br />
-        Area: <input value={a} onChange={(e) => { return; } } />
+        Area: <input value={a} readOnly />
       </div>
     </>
   )
