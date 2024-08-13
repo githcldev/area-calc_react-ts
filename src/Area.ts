@@ -1,9 +1,14 @@
+export interface AreaParams {
+    w: number,
+    h: number
+}
+
 export class Area {
     width;
     height;
-    constructor(width: number, height: number) {
-        this.width = width;
-        this.height = height;
+    constructor(params: AreaParams) {
+        this.width = params.w;
+        this.height = params.h;
     }
     calc(){
         return this.width * this.height;

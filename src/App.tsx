@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { Area } from './Area'
+import { Area, AreaParams } from './Area'
 import { NumStr } from './NumStr'
+
 
 function App() {
   const [n, setN] = useState(0)
@@ -17,7 +18,10 @@ function App() {
   }, [n])
 
   useEffect(() => {
-    let rec = new Area(h, w)
+    let p: AreaParams = {
+      w, h
+    }
+    let rec = new Area(p)
     setA(rec.calc())
   }, [h, w])
 
